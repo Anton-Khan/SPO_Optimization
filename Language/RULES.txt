@@ -1,0 +1,151 @@
+﻿	new	
+lang -> expr+
+expr -> assign_expr|if_expr|while_expr|new_list|list_func|function
+
+assign_expr -> VAR ASSIGN_OP value_expr SEMICOLON
+
+if_expr -> IF_KW if_head if_body
+
+while_expr -> WHILE_KW while_head while_body
+
+value -> VAR(DOT list_get_func)?|DIGIT|bracket_body
+
+value_expr -> value (OP value)* 
+
+bracket_body -> L_B value_expr R_B
+
+sq_braket_body -> L_SB expr+ R_SB
+
+logic_comp -> value_expr COMPARE_OP value_expr
+
+if_head -> L_B logic_comp R_B
+if_body -> sq_braket_body (else_expr)*
+else_expr -> ELSE_KW ( if_expr | sq_braket_body)
+
+while_head -> L_B logic_comp R_B
+while_head -> sq_braket_body
+
+new_list -> LIST_KW VAR SEMICOLON
+list_func -> DOT l_func SEMICOLON
+func -> add_func | insert_at_func | clear_func | display_func | delete_at_func | list_get_func 
+add_func -> ADD_KW func_body
+insert_at_func -> INSERT_KW L_B value_expr COMMA_KW value_expr R_B 
+display_func -> DISPLAY_KW L_B R_B 
+delete_at_func -> DELETE_AT_KW func_body
+clear_func -> CLEAR_KW L_B R_B
+
+
+list_get_func -> get_value_func | get_index_func | count | isEmpty_func | search_func
+count -> COUNT_KW L_B R_B
+get_value_func -> GET_VALUE_KW func_body
+get_index_func -> GET_INDEX_KW func_body
+isEmpty_func -> IS_EMPTY_KW L_B R_B 
+
+
+new_HT -> HT_KW VAR SEMICOLON
+search_func -> SEARCH_KW func_body
+
+
+LIST_KW -> ^List$
+ADD_KW -> ^Add$
+IS_EMPTY_KW -> ^IsEmpty$
+CLEAR_KW -> ^Clear$
+DISPLAY_KW -> ^Display$
+DELETE_AT_KW -> ^DeleteAt$
+GET_VALUE_KW -> ^GetValue$
+GET_INDEX_KW -> ^GetIndex$
+COUNT_KW -> ^Count$
+
+HT_KW -> ^HashTable$
+SEARCH_KW -> ^Search$
+
+func_body -> L_B value R_B
+
+SEMICOLON -> ^;$
+VAR -> ^([a-zA-Z]+)$
+DIGIT -> ^(0|[1-9][0-9]*)$
+ASSIGN_OP -> ^=$
+OP -> ^(\+|-|\*|\/)$
+IF_KW -> ^if$
+WHILE_KW -> ^while$
+FOR_KW -> ^for$
+L_B -> ^\($
+R_B -> ^\)$
+L_SB -> ^\{$
+R_SB -> ^\}$
+COMPARE_OP -> ^(>=|<=|>|<|!=|==)$
+DOT_KW -> ^\.$
+COMMA_KW -> ^,$
+
+OUT_KW -> "^out$"
+
+END -> $
+F_T -> !F
+UNC_T -> !
+
+
+
+
+
+FUNC -> <-->
+
+function -> FUNC_KW VAR f_head f_body 
+
+f_head ->  L_B (value COMMA_KW)*  R_B  
+
+f_body ->  L_SB (expr)* RETURN_KW value SEMICOLON R_SB
+
+function_call -> VAR L_B (value COMMA_KW)*  R_B SEMICOLON
+
+
+display_func -> DISPLAY_KW R_B value_expr L_B SEMICOLON
+
+
+
+
+Example test
+
+List list;
+HashTable ht;
+
+b=1;
+c=10;
+
+list.Insert(b, list.Count());
+list.Insert(c, list.Count());
+list.Insert(123, list.Count());
+
+ht.Insert(45, 45);
+ht.Insert(34, 67);
+ht.Insert(23, 89);
+
+ht.DeleteAt(23);
+list.DeleteAt(2);
+
+a = list.GetValue(0) + list.GetValue(1);
+d = ht.Search(34);
+
+ht.Display();
+
+list.Display();
+
+while(c > b){
+	if((c - b) > 5){
+		
+		list.Insert(b, list.Count());
+	
+	}else{
+		if( b == 6){
+		
+			ht.Insert(b, d*b);
+		}
+	}
+	b= b + 1;
+}
+
+
+
+list.Display();
+ht.Display();
+
+inf = ((1 * 2) + (3 * 4)*2)/2;
