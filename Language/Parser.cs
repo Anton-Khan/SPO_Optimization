@@ -10,6 +10,7 @@ namespace Language
         private readonly List<Token> tokens;
         private Stack<Token> Stack;
         private int iterator;
+        private bool async_func = false;
 
         Dictionary<String, FucntionData> functions;
 
@@ -124,29 +125,37 @@ namespace Language
                                         try
                                         {
                                             iterator--;
-                                            function();
+                                            async_fucntion();
                                         }
-                                        catch(LangException func)
+                                        catch(LangException async_f)
                                         {
                                             try
                                             {
                                                 iterator--;
-                                                display_value();
-                                                SEMICOLON();
-                                                
+                                                function();
+
                                             }
-                                            catch (LangException func_call)
+                                            catch (LangException func)
                                             {
                                                 try
                                                 {
                                                     iterator--;
-                                                    function_call();
+                                                    display_value();
                                                     SEMICOLON();
                                                 }
                                                 catch (LangException display_ex)
                                                 {
-                                                    //Console.WriteLine("\t\tНичего не подошло в EXPR или Конец EXPRESSION ->  " + (iterator - 1) + "\n\t\t\t" + ex.Message + "\n\t\t\t" + exc.Message + "\n\t\t\t" + excep.Message + "\n\t\t\t" + except.Message + "\n\t\t\t" + exception.Message + "\n\t\t\t" + hte.Message);
-                                                    throw new LangException("Ничего не подошло в EXPR или Конец EXPRESSION ->" + (iterator - 1) + "\n\t\t\t" + ex.Message + "\n\t\t\t" + exc.Message + "\n\t\t\t" + excep.Message + "\n\t\t\t" + except.Message + "\n\t\t\t" + exception.Message + "\n\t\t\t" + hte.Message + "\n\t\t\t" + _f.Message + "\n\t\t\t" + func.Message + "\n\t\t\t" + func_call.Message + "\n\t\t\t" + display_ex.Message);
+                                                    try
+                                                    {
+                                                        iterator--;
+                                                        function_call();
+                                                        SEMICOLON();
+                                                    }
+                                                    catch (LangException func_call)
+                                                    {
+                                                        //Console.WriteLine("\t\tНичего не подошло в EXPR или Конец EXPRESSION ->  " + (iterator - 1) + "\n\t\t\t" + ex.Message + "\n\t\t\t" + exc.Message + "\n\t\t\t" + excep.Message + "\n\t\t\t" + except.Message + "\n\t\t\t" + exception.Message + "\n\t\t\t" + hte.Message);
+                                                        throw new LangException("Ничего не подошло в EXPR или Конец EXPRESSION ->" + (iterator - 1) + "\n\t\t\t" + ex.Message + "\n\t\t\t" + exc.Message + "\n\t\t\t" + excep.Message + "\n\t\t\t" + except.Message + "\n\t\t\t" + exception.Message + "\n\t\t\t" + hte.Message + "\n\t\t\t" + _f.Message + "\n\t\t\t" + async_f.Message + "\n\t\t\t" + func.Message + "\n\t\t\t" + func_call.Message + "\n\t\t\t" + display_ex.Message);
+                                                    }
                                                 }
                                             }
                                         }
@@ -157,6 +166,15 @@ namespace Language
                     }
                 }
             }
+        }
+
+        private void async_fucntion()
+        {
+            ASYNC_KW();
+            async_func = true;
+            function();
+            async_func = false;
+
         }
 
         private void display_value()
@@ -178,6 +196,7 @@ namespace Language
             
             functions.Add(tokens[start].value, new FucntionData());
             functions[tokens[start].value].Name = tokens[start].value;
+            functions[tokens[start].value].Async = async_func;
             f_head();
             for (int i = start+2; i < iterator-1; i++)
             {
@@ -757,6 +776,10 @@ namespace Language
         private void RETURN_KW()
         {
             match(getNextToken(), Lexem.RETURN_KW);
+        }
+        private void ASYNC_KW()
+        {
+            match(getNextToken(), Lexem.ASYNC_KW);
         }
 
         // Не уверен в этой функции, нужно тестировать (опять все на try/catch)

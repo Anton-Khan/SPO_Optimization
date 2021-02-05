@@ -53,6 +53,10 @@ namespace Language
 
                 CustomFunction();
             }
+            else if (currentLexem == Lexem.ASYNC_KW)
+            {
+                pointer++;
+            }
             else if (currentLexem == Lexem.OP || currentLexem == Lexem.ASSIGN_OP || currentLexem == Lexem.COMPARE_OP)
             {
                 while (stack.Count != 0 && compareOperators(tokens[pointer], stack.Peek()))

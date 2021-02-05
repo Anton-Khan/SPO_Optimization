@@ -117,13 +117,19 @@ namespace Language
 
 
             TriadExecutor executor = new TriadExecutor(variables, functions, functions["Main"].Triads, functions["Main"]);
+            
             Console.WriteLine("\n\nВыполнение программы->");
-            var a = executor.Exucute();
-            Console.WriteLine("\n\nProgramm output :: " + a);
-
+            
+            
+            ThreadManager.AddContex(executor);
+            ThreadManager.RunAsync(10);
+            //Console.WriteLine("\n\nProgramm output :: " + a);
 
             
-          
+            
+
+
+
 
             Console.WriteLine("________________________________________________________________");
             Console.WriteLine();

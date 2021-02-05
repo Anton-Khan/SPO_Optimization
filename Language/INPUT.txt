@@ -1,38 +1,29 @@
-﻿func Sum(a, b){
-	return (a+b);
-}
-func Multipy(a, b){
-	return (a*b);
-}
-func Pow(a){
-	return (a*a);
+﻿
+async func fOne(){
+	a = 10;
+	while(a >= 0){
+		Display(a);
+		a = a - 1;
+	}
+	return 1;
 }
 
-func Main()
-{
-	A = 2;
-	Display(A);
-	B = 3;
-	Display(B);
-	summa = Sum(A, B);
-	Display(summa);
-	multiplication = Multipy(A, B);
-	Display(multiplication);
-	powA = Pow(A);
-	Display(powA);
-	powB = Pow(B);
-	Display(powB);
-	twoAB = 2*multiplication;
-	Display(twoAB);
-	tempSum = Sum(powA, twoAB);
-	Display(tempSum);
-	sqSum = Sum(tempSum, powB);
-	Display(sqSum);
-
-	sqSumShort = Pow(summa);
-	Display(sqSumShort);
-	
-
-	return sqSumShort;	
+async func fTwo(){
+	a = 0;
+	while(a <= 10){
+		Display(a);
+		a = a + 1;
+	}
+	return 2;
 }
- 
+
+
+func Main(){
+
+	Display(11);
+	fOne();
+	Display(22);	
+	fTwo();
+	Display(33);
+	return 0;
+}

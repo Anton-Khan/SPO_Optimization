@@ -30,6 +30,8 @@ namespace Language
 
         public Dictionary<String, String> LocalVariables { get; set; }
 
+        public bool Async { get; set; }
+
         public void CalculateParams()
         {
             Params = ParamsRaw.Where(x => x.lexem != Lexem.COMMA_KW).ToList();
@@ -44,8 +46,9 @@ namespace Language
             a.Name = this.Name.Clone() as string;
             a.Params = Util.CloneList(this.Params).ToList();
             a.ParamsRaw = Util.CloneList(this.ParamsRaw).ToList();
-            a.Poliz = Util.CloneList(this.Poliz).ToList(); ;
-            a.Triads = Util.CloneList(this.Triads).ToList(); ;
+            a.Poliz = Util.CloneList(this.Poliz).ToList(); 
+            a.Triads = Util.CloneList(this.Triads).ToList();
+            a.Async = Async;
             return a;
         }
     }

@@ -25,3 +25,16 @@ C:\Users\ANTON\Desktop\SPO2020_RESTART\Language\bin\Debug\System.ValueTuple.xml
 C:\Users\ANTON\Desktop\SPO2020_RESTART\Language\obj\Debug\Language.csproj.CopyComplete
 C:\Users\ANTON\Desktop\SPO2020_RESTART\Language\bin\Debug\Newtonsoft.Json.dll
 C:\Users\ANTON\Desktop\SPO2020_RESTART\Language\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\bin\Debug\INPUT.txt
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\bin\Debug\Language.exe.config
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\bin\Debug\Language.exe
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\bin\Debug\Language.pdb
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\bin\Debug\System.ValueTuple.dll
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\bin\Debug\System.ValueTuple.xml
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\obj\Debug\Language.csprojAssemblyReference.cache
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\obj\Debug\Language.csproj.CoreCompileInputs.cache
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\obj\Debug\Language.csproj.CopyComplete
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\obj\Debug\Language.exe
+C:\Users\ANTON\Documents\_Learning\Учеба\7 семестр\СПО\SPO_Optimization\Language\obj\Debug\Language.pdb

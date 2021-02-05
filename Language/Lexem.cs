@@ -74,13 +74,15 @@ namespace Language
         public static readonly Lexem CONST = new Lexem("", "C");
         public static readonly Lexem FUNC = new Lexem("", "FUNC");
 
+        public static readonly Lexem ASYNC_KW = new Lexem("^async$", "ASYNC_KW");
+
         public static readonly Lexem FUNC_KW = new Lexem("^func$", "FUNC_KW");
         public static readonly Lexem FUNCTION_CALL = new Lexem("", "FUNCTION_CALL");
         public static readonly Lexem SYSTEM_FUNC = new Lexem("", "SYSTEM_FUNC");
         public static readonly Lexem Display_FUNC = new Lexem("", "Display");
         public static readonly Lexem RETURN_KW = new Lexem("^return$", "RETURN_KW");
 
-
+        
 
         //public static readonly int Count = 16;
 
@@ -122,6 +124,7 @@ namespace Language
                 yield return SEARCH_KW;
 
                 yield return RETURN_KW;
+                yield return ASYNC_KW;
                 yield return FUNC_KW;
                 yield return VAR;
 
@@ -137,6 +140,12 @@ namespace Language
                 yield return SYSTEM_FUNC;
                 yield return Display_FUNC;
                 yield return FUNCTION_CALL;
+                yield return UNC_T;
+                yield return F_T;
+                yield return TRANS_LBL;
+                yield return CONST;
+                yield return FUNC;
+                
             }
         }
 

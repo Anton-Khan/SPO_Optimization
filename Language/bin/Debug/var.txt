@@ -1,1 +1,1 @@
-{"A":"2","B":"3","summa":"4","multiplication":"7","powA":"10","powB":"13","twoAB":"16","tempSum":"19","sqSum":"22","sqSumShort":"25"}
+{"a":"10"}

@@ -98,6 +98,10 @@ f_body ->  L_SB (expr)* RETURN_KW value SEMICOLON R_SB
 function_call -> VAR L_B (value COMMA_KW)*  R_B SEMICOLON
 
 
+
+async_function -> ASYNC_KW function
+
+
 display_func -> DISPLAY_KW R_B value_expr L_B SEMICOLON
 
 
